@@ -11,5 +11,15 @@ urlpatterns = [
     path('individual_Employee/<int:pk>/', views.individual_Employee, name="individual_Employee"),
     path('employee_create/', views.employee_Create, name="employee_create"), 
     path('employee_Edit/<int:pk>/', views.employee_Edit, name="employee_Edit"), 
-    path('employee_Delete/<int:pk>/', views.employee_Delete, name="employee_Delete"), 
+    path('employee_Delete/<int:pk>/', views.employee_Delete, name="employee_Delete"),
+    
+    path('salary-List/', views.salary_List, name="salary-List"),
+    path('indi-Salary/<int:pk>/', views.individual_Salary, name="indi-Salary"),
+    path('create-salary/', views.create_salary, name="create-salary"),
+    path('edit-salary/<int:pk>/', views.Salary_edit, name="edit-salary"),
+    path('partial_edit/<int:pk>/', views.salary_partial_edit, name="partial_edit"),
+    path('delete_salary/<int:pk>/', views.delete_salary, name="delete_salary"),
+    
+    
+     
 ]
