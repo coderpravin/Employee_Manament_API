@@ -14,6 +14,8 @@ def department_List(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
     
     
+    
+    
 @api_view(["GET"])
 def individual_department(request, pk):
     department = get_object_or_404(Department, pk=pk)

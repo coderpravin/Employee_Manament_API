@@ -8,55 +8,31 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Department List</title>
+    <title>Employee Salary List</title>
   </head>
   <body>
-    <h1>Department List</h1>
-
-    <!-- Update Department show karnysathi -->
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-primary text-center" role="alert" style="border-radius: 12px;">
-                <strong class="text-dark">
-                    {{message}}
-                </strong>
-
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                </button>
-            </div>
-        {% endfor %}
-    {% endif %}
-
-    
+    <h1>Employee Salary List</h1>
 
     <div class="container-fluid mt-5">
         <table class="table table-striped table-hover table-bordered text-center align-middle">
             <thead>
                 <tr>
                     <th class="py-3">Sr No.</th>
-                    <th class="py-3">Department Name</th>
+                    <th class="py-3">Employee Salary</th>
+                    <th class="py-3">Employee Name</th>
                     <th class="py-3">Action</th>
                 </tr>
             </thead>
 
             <tbody>
-                {% for department in departments %}
+                {% for salerie in saleries %}
                 <tr>
                     <td>{{forloop.counter}}</td>
-                    <td class="fw-bold">{{department.name}}</td>
+                    <td class="fw-bold">{{salerie.salary}}</td>
+                    <td class="fw-bold">{{salerie.employee.name}}</td>
                     <td>
-                        <a href="{% url 'edit-department' department.pk %}" >
-                            <button class="btn btn-outline-primary">
-                                Edit
-                        </button>
-                        </a>
-                        
-                        <a href="{% url 'delete-department' department.pk %}">
-                            <button class="btn btn-outline-danger">
-                                Delete
-                            </button>
-                        </a>
-                        
+                        <button type="button" class="btn btn-outline-primary">Edit</button>
+                        <button type="button" class="btn btn-outline-danger">Delete</button>
                     </td>
                 </tr>
                 {% endfor %}
