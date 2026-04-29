@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Department, Employee, Salary
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from .serializers import DepartmentSerializer, EmployeeSerializer, SalarySerializer
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 
 @api_view(["GET"])
@@ -20,6 +21,7 @@ def individual_department(request, pk):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(["POST"])
+@permission_classes([IsAuthenticated])
 def create_Department(request):
     serializer = DepartmentSerializer(data=request.data)
     if serializer.is_valid():

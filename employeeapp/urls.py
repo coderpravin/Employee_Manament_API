@@ -21,5 +21,4 @@ urlpatterns = [
     path('delete_salary/<int:pk>/', views.delete_salary, name="delete_salary"),
     
     
-     
 ]
