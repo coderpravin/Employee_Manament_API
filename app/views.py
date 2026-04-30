@@ -33,6 +33,9 @@ def delete_department(request,pk):
     
 def employee_salary(request):
     saleries = Salary.objects.all()
+    paginators = Paginator(saleries, 5)
+    page = request.GET.get("page")
+    saleries = paginators.get_page(page)
     context = {'saleries' :saleries}
     return render(request, 'employee_salary.html', context)
 
