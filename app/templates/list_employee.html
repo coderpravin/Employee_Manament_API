@@ -13,6 +13,18 @@
   <body>
     <h1>Employee List</h1>
 
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-primary text-center" role="alert" style="border-radius: 12px;">
+                <strong class="text-dark">
+                    {{message}}
+                </strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <div class="container-fluid mt-5">
         <table class="table table-striped table-hover table-bordered text-center align-middle">
             <thead>
@@ -35,8 +47,14 @@
                     <td class="fw-bold">{{employee.mobile}}</td>
                     <td class="fw-bold">{{employee.department.name}}</td>
                     <td>
-                        <button type="button" class="btn btn-outline-primary">Edit</button>
-                        <button type="button" class="btn btn-outline-danger">Delete</button>
+                        <a href="{% url 'edit-employee' employee.pk  %}">
+                            <button class="btn btn-outline-primary">Edit</button>
+                        </a>
+                        
+                        <a href=" {% url 'delete-employee' employee.pk %} ">
+                            <button class="btn btn-outline-danger">Delete</button>
+                        </a>
+                        
                     </td>
                 </tr>
                 {% endfor %}

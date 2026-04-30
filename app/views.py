@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from employeeapp.models import Department, Salary, Employee
 from django.contrib import messages
+from decimal import Decimal
 # Create your views here.
 
 def list_department(request):
@@ -31,9 +32,58 @@ def employee_salary(request):
     context = {'saleries' :saleries}
     return render(request, 'employee_salary.html', context)
 
+def edit_salary(request, pk):
+    salary_instance = get_object_or_404(Salary, pk=pk)
+    if request.method == "POST":
+        new_salary = request.POST.get('salary') #str
+        salary_instance.salary = Decimal(new_salary)
+        salary_instance.save()
+        return redirect('employee-salary')
+    context = {'salary':salary_instance}
+    return render(request, 'edit_salary.html', context)
+
+def delete_salary(request, pk):
+    salary_instance = get_object_or_404(Salary, pk=pk)
+    salary_instance.delete()
+    messages.success(request, "The Salary is deleted")
+    return redirect('employee-salary')
+    
+
 def list_employee(request):
     employees = Employee.objects.all()
     context = {'employees' : employees}
     return render(request, 'list_employee.html', context)
     
+    
+def edit_employee(request, pk):
+    employee_instance = get_object_or_404(Employee, pk=pk)
+    if request.method == "POST":
+        print("Post request come")
+        ename = request.POST.get('ename')
+        eemail = request.POST.get('eemail')
+        emobile = request.POST.get('emobile')
+        
+        try:
+           
+            employee_instance.name = ename
+            employee_instance.email = eemail
+            employee_instance.mobile = emobile
+            
+            employee_instance.save()
+            print("employee record save")
+            messages.success(request, "The Employee Record Update Successfully")
+            return redirect('list-employee')    
+            
+        except Department.DoesNotExist:
+            messages.error(request, "The Department not found")
+                    
+        
+    context= {'employee':employee_instance}
+    return render(request, 'edit_employee.html', context)
+
+def delete_employee(request, pk):
+    employee_instance = get_object_or_404(Employee, pk=pk)
+    employee_instance.delete()
+    messages.success(request, "The Employee Record Deleted")
+    return redirect('list-employee') 
     

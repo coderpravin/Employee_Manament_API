@@ -31,8 +31,13 @@
                     <td class="fw-bold">{{salerie.salary}}</td>
                     <td class="fw-bold">{{salerie.employee.name}}</td>
                     <td>
-                        <button type="button" class="btn btn-outline-primary">Edit</button>
-                        <button type="button" class="btn btn-outline-danger">Delete</button>
+                        <a href="{% url 'edit-salary'  salerie.pk %}">
+                            <button class="btn btn-outline-primary">Edit</button>
+                        </a>
+                        
+                        <a href="{% url 'delete-salary'  salerie.pk%}">
+                            <button class="btn btn-outline-danger">Delete</button>
+                        </a>
                     </td>
                 </tr>
                 {% endfor %}
