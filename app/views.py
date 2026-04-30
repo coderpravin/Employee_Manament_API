@@ -58,6 +58,9 @@ def delete_salary(request, pk):
 
 def list_employee(request):
     employees = Employee.objects.all()
+    paginators = Paginator(employees, 5)
+    page = request.GET.get("page")
+    employees = paginators.get_page(page)
     context = {'employees' : employees}
     return render(request, 'list_employee.html', context)
     
