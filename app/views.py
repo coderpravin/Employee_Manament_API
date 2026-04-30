@@ -2,10 +2,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 from employeeapp.models import Department, Salary, Employee
 from django.contrib import messages
 from decimal import Decimal
+from django.core.paginator import Paginator
 # Create your views here.
 
 def list_department(request):
     departments = Department.objects.all()
+    paginators = Paginator(departments, 5)
+    page = request.GET.get("page")
+    departments = paginators.get_page(page)
     context = {'departments' : departments}
     return render(request, 'list_department.html', context)
 
