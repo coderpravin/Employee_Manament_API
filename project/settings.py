@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'employeeapp',
     'app', 
+    'users',
     
     'rest_framework',
     'rest_framework_simplejwt',
