@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="bg-primary text-white py-5 mb-5 shadow-sm">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-7">
+                <h1 class="display-3 fw-bold">Employee Management System</h1>
+                <p class="lead">तुमच्या संस्थेचा डेटा, सॅलरी आणि डिपार्टमेंट्स आता एकाच ठिकाणी मॅनेज करा. सुरक्षित आणि वेगवान!</p>
+                <div class="mt-4">
+                    <a href="#features" class="btn btn-outline-light btn-lg me-2">Explore Features</a>
+                    <a href="{% url 'users:login-user' %}" class="btn btn-warning btn-lg">Get Started</a>
+                </div>
+            </div>
+            <div class="col-md-5 text-center">
+                <img src="{% static 'images/dashboard.jpg' %}" alt="Dashboard" class="img-fluid rounded shadow-lg">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <!-- Stat Cards Section (हे पेजला आकर्षक बनवते) -->
+    <div class="row text-center mb-5">
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm p-3 bg-light">
+                <h3 class="text-primary fw-bold">५००+</h3>
+                <p class="text-muted mb-0">Total Employees</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm p-3 bg-light">
+                <h3 class="text-success fw-bold">१५+</h3>
+                <p class="text-muted mb-0">Departments</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm p-3 bg-light">
+                <h3 class="text-info fw-bold">API</h3>
+                <p class="text-muted mb-0">REST Framework Ready</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm p-3 bg-light">
+                <h3 class="text-danger fw-bold">Secure</h3>
+                <p class="text-muted mb-0">Admin Controlled</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="row g-4">
+        <h2 class="text-center mb-4">Core Functionalities</h2>
+        
+        <!-- Feature 1 -->
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm text-center p-4">
+                <div class="mb-3">
+                    <i class="bi bi-people-fill fs-1 text-primary"></i>
+                </div>
+                <h4>Employee Records</h4>
+                <p class="text-muted">कर्मचाऱ्यांची वैयक्तिक माहिती, कॉन्टॅक्ट आणि इतर सर्व रेकॉर्ड्स डिजिटल स्वरूपात जतन करा.</p>
+            </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm text-center p-4">
+                <div class="mb-3">
+                    <i class="bi bi-currency-dollar fs-1 text-success"></i>
+                </div>
+                <h4>Salary Management</h4>
+                <p class="text-muted">पगार आणि पे-स्लिप्सची संपूर्ण माहिती ॲडमिनद्वारे हाताळली जाते.</p>
+            </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm text-center p-4">
+                <div class="mb-3">
+                    <i class="bi bi-gear-fill fs-1 text-secondary"></i>
+                </div>
+                <h4>REST API Support</h4>
+                <p class="text-muted">Django Rest Framework चा वापर करून डेटा मोबाईल ॲप्स किंवा इतर सिस्टिमला जोडा.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Admin Note Section -->
+<div class="container mb-5">
+    <div class="alert alert-info border-0 shadow-sm p-4 text-center">
+        <h5><i class="bi bi-shield-lock-fill"></i> Admin Privilege</h5>
+        <p class="mb-0">सर्व महत्त्वाचे बदल, जसे की नवीन एम्प्लॉई जोडणे किंवा पगार अपडेट करणे, हे केवळ ॲडमिनच्या नियंत्रणाखाली असतात.</p>
+    </div>
+</div>
+{% endblock content %}

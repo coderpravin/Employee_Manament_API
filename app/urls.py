@@ -17,6 +17,7 @@ urlpatterns = [
     
     path('about-page', views.about_page, name="about-page"),
     path('contact-page', views.contact_page, name="contact-page"),
+    path('home-page', views.home_page, name="home-page"),
     
     
     
