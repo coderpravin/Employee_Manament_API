@@ -43,13 +43,28 @@
                     </ul>
 
                     <ul class="navbar-nav ms-auto">
+
+                        {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="btn btn-outline-primary me-2" href="{% url 'users:login-user' %}">Login</a>
+                            <span class="nav-link text-dark me-2" >Hello, {{user.username}} </span>
                         </li>
+                        
+                        <li class="nav-item">
+                            <a class="btn btn-outline-danger me-2" href="{% url 'users:logout-user' %}">Logout</a>
+                        </li>
+                        
+                        {% else %}
 
                         <li class="nav-item">
                             <a class="btn btn-outline-secondary me-2" href="{% url 'users:register-user' %}">Sign Up</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary me-2" href="{% url 'users:login-user' %}">Login</a>
+                        </li>
+                        {% endif %}
+                        
+
                     </ul>
 
                 </div>

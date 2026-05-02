@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
 from .forms import ExtendUserCreationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def login_user(request):
@@ -33,4 +33,10 @@ def register_user(request):
         form = ExtendUserCreationForm()
     context = {'form' : form}
     return render(request, 'signup.html', context)
+    
+    
+def logout_user(request):
+    logout(request)
+    messages.info(request, "You are successfully Logout")
+    return redirect('users:login-user')
     
