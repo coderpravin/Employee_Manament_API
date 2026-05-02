@@ -13,7 +13,7 @@ class LoginTest(TestCase):
         User.objects.create_user(username=self.username, password = self.password)
         
         #login che naav
-        self.login_url = reverse("login-user") 
+        self.login_url = reverse("users:login-user") 
         
     def test_login_logic(self):
         #post requst ne check
