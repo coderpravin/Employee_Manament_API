@@ -96,4 +96,8 @@ def delete_employee(request, pk):
     employee_instance.delete()
     messages.success(request, "The Employee Record Deleted")
     return redirect('list-employee') 
+
+
+def base_view(request):
+    return render(request, 'base.html')
     

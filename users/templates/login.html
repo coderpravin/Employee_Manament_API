@@ -1,22 +1,15 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "base.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+{% block title %}
     <title>Login Form</title>
-  </head>
-  <body>
-
-    <div class="container-fluid mt-5">
-        <div class="card login-card shadow-sm">
-            <div class="card-header bg-white border-0 pt-4">
-                <h3 class="text-center fw-bold">Login</h3>
-            </div>
+{% endblock title %}
+  
+{% block content %}
+<div class="container-fluid mt-5">
+    <div class="card login-card shadow-sm">
+        <div class="card-header bg-white border-0 pt-4">
+            <h3 class="text-center fw-bold">Login</h3>
+        </div>
             
         <div class="card-body px-4">
             <form action="" method="post" novalidate>
@@ -32,10 +25,11 @@
                         {% endfor %}
                     {% endif %}
             </div>
-            </div>
-            
             {% endfor %}
-        </div>    
+        </div>
+            
+          
+    </div>    
         
             <div class="d-grid gap-2 mt-4">
                 <button type="submit" class="btn btn-primary">Login</button>
@@ -43,7 +37,7 @@
     
         </form>
         
-    </div>
+</div>
     
     <div class="card-footer text-center">
       <small>Create new an account? <a href="{% url 'register-user' %}">Signup here</a></small>
@@ -55,5 +49,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
-  </body>
-</html>
+{% endblock content %}
+    

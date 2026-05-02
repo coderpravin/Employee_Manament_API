@@ -13,4 +13,8 @@ urlpatterns = [
     path('edit-employee/<int:pk>', views.edit_employee, name="edit-employee"),
     path('delete-employee/<int:pk>', views.delete_employee, name="delete-employee"),
     
+    path('base-page', views.base_view, name="base-page"),
+    
+    
+    
 ]
