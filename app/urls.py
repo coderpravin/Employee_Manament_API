@@ -15,6 +15,11 @@ urlpatterns = [
     
     path('base-page', views.base_view, name="base-page"),
     
+    path('about-page', views.about_page, name="about-page"),
+    path('contact-page', views.contact_page, name="contact-page"),
+    
+    
+    
     
     
 ]

@@ -100,4 +100,10 @@ def delete_employee(request, pk):
 
 def base_view(request):
     return render(request, 'base.html')
+
+def contact_page(request):
+    return render(request, 'contact.html')
+
+def about_page(request):
+    return render(request, 'about.html')
     

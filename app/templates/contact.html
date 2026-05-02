@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Contact Page</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h1 class="display-5 fw-bold text-primary">Contact Us</h1>
+            <hr class="w-35 mx-auto">
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <!-- left side: Contact Form -->
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm border-0">
+                <h2 class="mb-4 text-primary">Get In Touch</h2>
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control form-control-lg" placeholder="Your Name">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="email" class="form-control form-control-lg" placeholder="Your Email">
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea class="form-control form-control-lg" rows="4" placeholder="Your Message"></textarea>
+                    </div>
+
+                    <button class="btn btn-primary btn-lg w-100">Send Message</button>
+                </form>
+
+            </div>
+        </div> 
+        
+        <!-- right side: Contact Form Image -->
+        <div class="col-md-6">
+            <img 
+                src="{% static 'images/contact.jpg' %}" 
+                alt="Contact Image"
+                class="contact-img"
+                width="400"
+                >
+        </div>    
+
+    </div>
+</div>
+
+{% endblock content %}

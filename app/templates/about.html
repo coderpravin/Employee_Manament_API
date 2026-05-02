@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    <title>About Page</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-5">
+
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h1 class="display-5 fw-bold text-primary">About Us</h1>
+                <hr class="w-35 mx-auto">
+            </div>
+        </div>
+
+
+        <div class="row align-items-center">
+            <!-- Left Side Content -->
+            <div class="col-md-6">
+                <h1 class="about-title mb-4">
+                    About Our Website
+                </h1>
+
+                <p class="about-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Quaerat doloremque molestiae asperiores quas ducimus 
+                    consequatur temporibus modi deleniti. Similique, voluptate.
+                </p>
+
+                <p class="about-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Facilis reprehenderit officiis deserunt, rem possimus 
+                    voluptas ipsam architecto recusandae enim aspernatur 
+                    beatae exercitationem labore.
+
+                </p>
+
+                <p class="about-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Facilis reprehenderit officiis deserunt, rem possimus 
+                    voluptas ipsam architecto recusandae enim aspernatur 
+                    beatae exercitationem labore.
+
+                </p>
+
+
+                <a href="#" class="btn btn-primary about-btn mt-3">
+                    Read More
+                </a>
+            </div>
+
+            <div class="col-md-6 text-center mt-4 mt-md-0">
+                <img 
+                    src="{% static 'images/about.png' %}" 
+                    alt="About Image"
+                    class="about-img"
+                    width="400"
+                >
+            </div>
+
+        </div>
+    </div>
+
+    
+{% endblock content %}
