@@ -13,7 +13,7 @@ def list_department(request):
         messages.error(request, "You are not authenticacated person, First Login")
         return redirect('users:login-user')
    
-    departments = Department.objects.all()
+    departments = Department.objects.all().order_by('-id')
     
     search_query = request.GET.get('search_query')
     if search_query:
