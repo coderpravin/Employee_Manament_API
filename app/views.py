@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from employeeapp.models import Department, Salary, Employee
+from employeeapp.models import Department, Salary, Employee, ContactEnquiry
 from django.contrib import messages
 from decimal import Decimal
 from django.core.paginator import Paginator
@@ -124,11 +124,26 @@ def base_view(request):
     return render(request, 'base.html')
 
 def contact_page(request):
+    if request.method == "POST":
+        username = request.POST.get("user_name")
+        useremail = request.POST.get("user_email")
+        usertext = request.POST.get("user_text")
+        
+        if username and useremail and usertext:
+            ContactEnquiry.objects.create(name = username, email = useremail, message = usertext)
+        
+            messages.success(request, "Your message submiited successfully")
+            return redirect('contact-page')
+        
     return render(request, 'contact.html')
+
+
 
 def about_page(request):
     return render(request, 'about.html')
     
 def home_page(request):
     return render(request, 'home.html')
+
+
 

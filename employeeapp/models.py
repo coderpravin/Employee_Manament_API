@@ -28,4 +28,15 @@ class Salary(models.Model):
     employee = models.OneToOneField(Employee, on_delete=models.CASCADE, related_name='salary') 
     salary = models.DecimalField(max_digits=10, decimal_places=2)
     
+    
+class ContactEnquiry(models.Model):
+    name = models.CharField(max_length=100, blank=False, null=False)
+    email = models.EmailField(blank=False, null=False)
+    message = models.TextField(blank=False, null=False)
+    created_at = models.DateField(auto_now_add=True)
+    
+    
+    
+    
+    
        

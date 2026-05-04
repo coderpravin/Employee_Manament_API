@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Employee, Salary, Department
+from .models import Employee, Salary, Department, ContactEnquiry
 # Register your models here.
 
 
@@ -25,5 +25,16 @@ class DepartmentAdmin(admin.ModelAdmin):
     list_display = ["name"]
     
 admin.site.register(Department, DepartmentAdmin)
+
+
+class ContactEnquiryAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'message']
+    
+    def has_change_permission(self, request, obj = None):
+        return False
+    
+    def has_add_permission(self, request):
+        return False
+admin.site.register(ContactEnquiry, ContactEnquiryAdmin)
 
 
