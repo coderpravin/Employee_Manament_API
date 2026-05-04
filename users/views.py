@@ -10,11 +10,13 @@ def login_user(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data= request.POST)
         if form.is_valid():
-            print("Yes form")
+           
             user = form.get_user()
             login(request, user)
             request.session['access_fuc'] = True
-            return redirect('app/list-department')
+            print("Login success")
+            return redirect('/app/list-department')
+        
         else:
             print("Form Invalid", form.errors)
     else:

@@ -140,4 +140,4 @@ STATICFILES_DIRS =  [
 ]
 
 # settings.py
-LOGIN_URL = 'users:login-user'
+LOGIN_URL = '/user/login-user/'

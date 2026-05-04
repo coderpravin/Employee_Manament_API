@@ -4,6 +4,7 @@ from django.contrib import messages
 from decimal import Decimal
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 # Create your views here.
 
 @login_required
@@ -13,6 +14,11 @@ def list_department(request):
         return redirect('users:login-user')
    
     departments = Department.objects.all()
+    
+    search_query = request.GET.get('search_query')
+    if search_query:
+        departments=  departments.filter(Q(name__icontains=search_query))
+    
     paginators = Paginator(departments, 5)
     page = request.GET.get("page")
     departments = paginators.get_page(page)
@@ -68,6 +74,11 @@ def delete_salary(request, pk):
 @login_required
 def list_employee(request):
     employees = Employee.objects.all()
+    search_query = request.GET.get('search_query')
+    
+    if search_query:
+        employees = Employee.objects.filter(Q(name__startswith = search_query))
+    
     paginators = Paginator(employees, 5)
     page = request.GET.get("page")
     employees = paginators.get_page(page)
