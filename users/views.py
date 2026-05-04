@@ -13,7 +13,8 @@ def login_user(request):
             print("Yes form")
             user = form.get_user()
             login(request, user)
-            return HttpResponse("Login Success")
+            request.session['access_fuc'] = True
+            return redirect('app/list-department')
         else:
             print("Form Invalid", form.errors)
     else:

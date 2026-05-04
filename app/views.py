@@ -8,6 +8,10 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def list_department(request):
+    if not request.session.get('access_fuc'):
+        messages.error(request, "You are not authenticacated person, First Login")
+        return redirect('users:login-user')
+   
     departments = Department.objects.all()
     paginators = Paginator(departments, 5)
     page = request.GET.get("page")
