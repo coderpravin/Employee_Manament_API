@@ -20,7 +20,7 @@ class LoginTest(TestCase):
         response = self.client.post(self.login_url, {
             'username' : self.username,
             'password' : self.password
-        })        
+        }, follow=True)        
         
         #check karave lagel
         self.assertEqual(response.status_code, 200)
