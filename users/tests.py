@@ -24,7 +24,7 @@ class LoginTest(TestCase):
         
         #check karave lagel
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Login Success")
+        self.assertContains(response, "Login success")
 
     def test_wrong_login_logic(self):
         response = self.client.post(self.login_url, {
