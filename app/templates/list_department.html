@@ -6,7 +6,6 @@
     
 
     {% block content %}
-    
 
     <!-- Update Department show karnysathi -->
     {% if messages %}
@@ -47,7 +46,11 @@
                 <tr>
                     <th class="py-3">Sr No.</th>
                     <th class="py-3">Department Name</th>
-                    <th class="py-3">Action</th>
+
+                    {% if user.is_superuser %}
+                        <th class="py-3">Action</th>
+                    {% endif %}
+
                 </tr>
             </thead>
 
@@ -56,6 +59,7 @@
                 <tr>
                     <td>{{forloop.counter}}</td>
                     <td class="fw-bold">{{department.name}}</td>
+                    {% if user.is_superuser %}
                     <td>
                         <a href="{% url 'edit-department' department.pk %}" >
                             <button class="btn btn-outline-primary">
@@ -68,8 +72,8 @@
                                 Delete
                             </button>
                         </a>
-                        
                     </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
