@@ -27,6 +27,8 @@ class DepartmentAdmin(admin.ModelAdmin):
 admin.site.register(Department, DepartmentAdmin)
 
 
+
+
 class ContactEnquiryAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'message']
     

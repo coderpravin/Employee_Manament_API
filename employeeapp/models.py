@@ -29,11 +29,25 @@ class Salary(models.Model):
     salary = models.DecimalField(max_digits=10, decimal_places=2)
     
     
+class ContactEnquiryManager(models.Manager):
+    def get_recent_enquiries(self):
+        return self.get_queryset().order_by("-created_at")
+        
+    def search_by_email(self, email):
+        return self.get_queryset().filter(email__icontains=email)
+    
+    
 class ContactEnquiry(models.Model):
     name = models.CharField(max_length=100, blank=False, null=False)
     email = models.EmailField(blank=False, null=False)
     message = models.TextField(blank=False, null=False)
     created_at = models.DateField(auto_now_add=True)
+    
+    objects = ContactEnquiryManager()
+    
+    
+    
+    
     
     
     
